@@ -15,12 +15,12 @@ public class SecurityConfig {
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/").permitAll()
                         .anyRequest().authenticated()
-                );
-//                .formLogin((form) -> form
-//                        .loginPage("/")
-//                        .permitAll()
-//                )
-//                .logout((logout) -> logout.permitAll());
+                )
+                .formLogin((form) -> form
+                        .loginPage("/login")
+                        .permitAll()
+                )
+                .logout((logout) -> logout.permitAll());
 
         return http.build();
     }
